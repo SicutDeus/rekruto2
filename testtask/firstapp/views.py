@@ -5,7 +5,7 @@ from django.contrib.auth import logout
 
 def index(request):
     if not request.user.is_authenticated :
-        return HttpResponse('Кода нет(')
+        redirect(reverse('firstapp:user_login'))
     else :
         logout(request)
         return HttpResponse(f'{rnd(1000, 10000)}')
